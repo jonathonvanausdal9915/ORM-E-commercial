@@ -29,4 +29,4 @@ screenshot: ![alt text](assets/images/screenshot.png)
 ## Links:
 * Github link: https://github.com/jonathonvanausdal9915/ORM-E-commercial
 * 
-* video link: https://drive.google.com/file/d/1CCAaydBEqSYuO6L9P02p98HMF9m9YBIj/view?usp=sharing
+* video link: https://drive.google.com/file/d/1u_S3Zya2FxV-QloAfaHell5iBcspxUtG/view?usp=sharing
