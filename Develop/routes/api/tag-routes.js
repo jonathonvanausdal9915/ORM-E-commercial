@@ -49,6 +49,26 @@ router.get('/:id',async (req, res) => {
 
 
 router.post('/',  (req, res) => {
+//   {
+//     "id":15,
+//     "tag_name":"TESTING",
+//     "products":[
+//        {
+//           "id":3,
+//           "product_name":"TESTING",
+//           "price":23,
+//           "stock":12,
+//           "category_id":4,
+//           "product_tag":{
+//              "id":5,
+//              "product_id":3,
+//              "tag_id":1,
+//              "productId":3,
+//              "tagId":1
+//           }
+//        }
+//     ]
+//  }
   // create a new tag
   Tag.create(req.body)
   .then((tag) => {
