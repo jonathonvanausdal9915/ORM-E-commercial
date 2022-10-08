@@ -47,36 +47,66 @@ router.get('/:id', async (req, res) => {
 
 
 router.post('/', (req, res) => {
-  Category.create(req.body)
-    .then((product) => {
-      // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
-        const productTagIdArr = req.body.tagIds.map((tag_id) => {
-          return {
-            product_id: product.id,
-            tag_id,
-          };
-        });
-        return ProductTag.bulkCreate(productTagIdArr);
-      }
-      // if no product tags, just respond
-      res.status(200).json(product);
-    })
-    .then((productTagIds) => res.status(200).json(productTagIds))
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
-});
+//   {
+//     "productData":[
+//        {
+//           "id":1,
+//           "category_name":"Cozzy Socks",
+//           "products":[
+//              {
+//                 "id":1,
+//                 "product_name":"Fuzzy Socks",
+//                 "price":15,
+//                 "stock":14,
+//                 "category_id":1
+//              }
+//           ]
+//        }
+//     ]
+//  }
   // create a new category
+  Category.create(req.body)
+  .then((category) => {
+    res.status(200).json(category);
+  })
+  .catch((err) => {
+    res.status(400).json({message: "something went wrong"});
+  });
+
+});
 
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.update(req.body)
+  .then((category) => {
+    res.status(200).json(category);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
+  });
 });
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  try {
+    // pass in req.params.id into destroy.
+    const productData = Category.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if(!productData) {
+      res.status(404).json({ message: "No product found with that id!"});
+      return;
+    }
+    res.status(200).json(productData,);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 module.exports = router;
