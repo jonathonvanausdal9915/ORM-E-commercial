@@ -48,19 +48,15 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
 //   {
-//     "productData":[
+//     "id":15,
+//     "category_name":"TESTING",
+//     "products":[
 //        {
-//           "id":1,
-//           "category_name":"Cozzy Socks",
-//           "products":[
-//              {
-//                 "id":1,
-//                 "product_name":"Fuzzy Socks",
-//                 "price":15,
-//                 "stock":14,
-//                 "category_id":1
-//              }
-//           ]
+//           "id":15,
+//           "product_name":"TESTING",
+//           "price":15,
+//           "stock":14,
+//           "category_id":1
 //        }
 //     ]
 //  }

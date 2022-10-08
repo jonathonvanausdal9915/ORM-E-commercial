@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
 // create new product
 router.post('/', (req, res) => {
 //   {
-//     "product_name":"Basketball",
+//     "product_name":"TESTING",
 //     "price":200.00,
 //     "stock":3,
 //     "tagIds":[
@@ -86,7 +86,18 @@ router.post('/', (req, res) => {
 });
 
 // update product
-router.put('/:id', (req, res) => {
+// router.put('/:id', (req, res) => {
+//   {
+//     "product_name":"Get Updated",
+//     "price":200.00,
+//     "stock":3,
+//     "tagIds":[
+//        1,
+//        2,
+//        3,
+//        4
+//     ]
+//  }
   // update product data
   Product.update(req.body, {
     where: {
@@ -125,7 +136,7 @@ router.put('/:id', (req, res) => {
       // console.log(err);
       res.status(400).json(err);
     });
-});
+
 
 router.delete('/:id', (req, res) => {
   try {
